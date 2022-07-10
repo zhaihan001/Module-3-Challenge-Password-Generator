@@ -16,9 +16,9 @@ function writePassword() {
 
     var passwordLength = window.prompt("Please choose a number from 8-128 to determine how many characters for your password. ");
     
-    // if (!passwordLength){
-    //   return;
-    // }
+    if (!passwordLength){
+      return;
+    }
     
     if ( (passwordLength<8) || (passwordLength>128) || (isNaN(passwordLength)) ){
       window.alert("Please only enter number between 8 and 128!");
