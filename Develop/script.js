@@ -17,11 +17,13 @@ function writePassword() {
     var passwordLength = window.prompt("Please choose a number from 8-128 to determine how many characters for your password. ");
     
     if (!passwordLength){
+      passwordLength = null;
       return;
     }
     
     if ( (passwordLength<8) || (passwordLength>128) || (isNaN(passwordLength)) ){
       window.alert("Please only enter number between 8 and 128!");
+      passwordLength = null;
       generatePassword();
     }
 
@@ -51,19 +53,14 @@ function writePassword() {
       var tempPasswordArray = tempPasswordString.split("");
     }
 
-    console.log(tempPasswordArray);
-
     var finalPassword=[];
     for ( i =0; i<passwordLength; i++) {
       finalPassword[i]=tempPasswordArray[Math.floor(Math.random()*tempPasswordArray.length)];
     }
 
-    finalPassword=finalPassword.join("");
-
-    console.log(finalPassword);
-    window.alert("Your password is: "+finalPassword);
-
-    return finalPassword;
+    password=finalPassword.join("");
+    window.alert("Your password is: "+password);
+    return password;
   }
 
   return;
