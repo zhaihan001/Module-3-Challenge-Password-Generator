@@ -18,13 +18,13 @@ function writePassword() {
     
     if (!passwordLength){
       passwordLength = null;
-      return;
+      return generatePassword();
     }
     
     if ( (passwordLength<8) || (passwordLength>128) || (isNaN(passwordLength)) ){
       window.alert("Please only enter number between 8 and 128!");
       passwordLength = null;
-      generatePassword();
+      return generatePassword();
     }
 
     var tempPasswordString="";
@@ -47,7 +47,7 @@ function writePassword() {
 
     if ( tempPasswordString == "" ){
       window.alert("Please select at least one character type.");
-      generatePassword();
+      return generatePassword();
     }
     else {
       var tempPasswordArray = tempPasswordString.split("");
